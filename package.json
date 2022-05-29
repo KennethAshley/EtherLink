@@ -1,16 +1,16 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "etherLink",
-  "title": "Etherlink",
-  "description": "Ethereum based address linker",
+  "name": "etherLinks",
+  "title": "EtherLinks",
+  "description": "Open Ethereum based addresses",
   "icon": "ethereum.png",
   "categories": ["Finance", "Web"],
   "author": "KennethAshley",
   "license": "MIT",
   "commands": [
     {
-      "name": "etherLink",
-      "title": "Etherlink",
+      "name": "etherLinks",
+      "title": "EtherLinks",
       "description": "Open Ethereum based addresses",
       "mode": "view"
     }

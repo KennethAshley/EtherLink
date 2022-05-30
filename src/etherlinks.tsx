@@ -10,11 +10,9 @@ import {
 
 import { uniqueId, upperFirst, lowerCase } from 'lodash'
 import { useState, useEffect } from 'react'
-import { utils } from 'ethers'
 
 import chains, { Chain, chainImgs } from './chains'
-import searchParser from './utils/searchParser'
-import urlParser from './utils/urlParser'
+import { searchParser, urlParser, isAddress, isTransaction } from './utils'
 
 export interface SearchText {
   text: string
@@ -49,18 +47,16 @@ export default () => {
     network: string,
     search: SearchText | undefined,
   ) => {
-    if (!search?.text || !utils.isAddress(search?.text)) {
+    if (search?.text && (isAddress(search.text) || isTransaction(search.text))) {
+      const url = urlParser(chain, network, search)
+
+      open(url)
+    } else {
       await showToast({
         style: Toast.Style.Failure,
         title: "Invalid search string",
       })
-
-      return
     }
-
-    const url = urlParser(chain, network, search)
-
-    open(url)
   }
 
   return (
@@ -70,7 +66,7 @@ export default () => {
       onSearchTextChange={handleSearchTextChange}
       searchBarPlaceholder="Search by Address / Txn Hash"
       enableFiltering={false}
-      navigationTitle="EtherLink"
+      navigationTitle="Etherlinks"
     >
       <List.Section title="Chains">
         { chains.map((chain => (

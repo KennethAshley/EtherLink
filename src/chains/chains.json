@@ -10,7 +10,7 @@
   {
     "name":"binance",
     "networks":{
-      "mainnet":"https://www.bscscan.com/"
+      "mainnet":"https://www.bscscan.com"
     }
   },
   {
@@ -28,7 +28,7 @@
   {
     "name":"fantom",
     "networks":{
-      "mainnet":"https://ftmscan.com/"
+      "mainnet":"https://ftmscan.com"
     }
   },
   {
